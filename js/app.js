@@ -60,16 +60,16 @@ function play() {
         console.log(randomnumber);
     }
 
-    function level_four_diagnostic() {
-        console.log("Guess is " + guess);
-        console.log("Random is " + randomnumber);
-        console.log("Hotnum is " + hotnum);
-    }
     function newGame() {
         randNum();
         var guess = 0;
         var hotnum = 0;
         level_four_diagnostic();
+    }
+    function level_four_diagnostic() {
+        console.log("Guess is " + guess);
+        console.log("Random is " + randomnumber);
+        console.log("Hotnum is " + hotnum);
     }
 
 }
