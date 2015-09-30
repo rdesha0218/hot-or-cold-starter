@@ -68,7 +68,7 @@ newGame();
             $('#feedback').text("Warm");
         } else if (hotnum > 10 && hotnum < 20) {
             $('#feedback').text("Hot");
-        } else if (hotnum > 1 && hotnum < 10) {
+        } else if (hotnum > 0 && hotnum < 10) {
             $('#feedback').text("Very Hot");
         } else {
             $('#feedback').text("Not even close");
