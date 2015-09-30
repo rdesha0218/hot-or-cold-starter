@@ -62,13 +62,13 @@ newGame();
         if (randomnumber == guess) {
             $('#feedback').text("Your guess was right!");
             return false;
-        } else if (hotnum > 30 && hotnum < 50) {
+        } else if (hotnum >= 30 && hotnum <= 51) {
             $('#feedback').text("Guess is Ice Cold!");
-        } else if (hotnum > 20 && hotnum < 30) {
+        } else if (hotnum >= 20 && hotnum <= 30) {
             $('#feedback').text("Warm");
-        } else if (hotnum > 10 && hotnum < 20) {
+        } else if (hotnum >= 10 && hotnum <= 20) {
             $('#feedback').text("Hot");
-        } else if (hotnum > 0 && hotnum < 10) {
+        } else if (hotnum >= 1 && hotnum <= 10) {
             $('#feedback').text("Very Hot");
         } else {
             $('#feedback').text("Not even close");
