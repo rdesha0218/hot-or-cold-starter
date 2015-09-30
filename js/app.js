@@ -1,15 +1,35 @@
-newGame();
-  
 
 $(document).ready(function() {
+	var guess;
+  var hotnum;
+  var randomnumber;
+  var counter = 0;
+
+newGame();
+
+
     $('button').click(function() {
         player();
-        return false;
+        console.log("test player");
+           //difference();
+           console.log("test difference");
+            hotter();
+            console.log("test hotter");
+             counter++;
+            $('#count').text(counter);
+            return false;
     });
 
     $(function() {
         $("form").submit(function() {
             player();
+        	console.log("test player");
+          // difference();
+           console.log("test difference");
+            hotter();
+            console.log("test hotter");
+             counter++;
+            $('#count').text(counter);
             return false;
         });
     });
@@ -24,59 +44,55 @@ $(document).ready(function() {
     $("a.close").click(function() {
         $(".overlay").fadeOut(1000);
     });
+    $('a.new').click(function (){
+    	location.reload();
+    });
 });
 
     //Logic function that determines hot and cold
+    /*
     function difference() {
-        var hotnum = Math.abs(guess - randomnumber);
+        hotnum = Math.abs(guess - randomnumber);
         return hotnum;
     }
+*/
 
     function hotter() {
-
+    	hotnum = Math.abs(guess - randomnumber);
         if (randomnumber == guess) {
-            return "Your guess was right!";
-        } else if (hotnum > 30 && choice < 50) {
-            return "Guess is Ice Cold!";
+            $('#feedback').text("Your guess was right!");
+            return false;
+        } else if (hotnum > 30 && hotnum < 50) {
+            $('#feedback').text("Guess is Ice Cold!");
         } else if (hotnum > 20 && hotnum < 30) {
-            return "Warm";
+            $('#feedback').text("Warm");
         } else if (hotnum > 10 && hotnum < 20) {
-            return "Hot";
+            $('#feedback').text("Hot");
         } else if (hotnum > 1 && hotnum < 10) {
-            return "Very Hot";
+            $('#feedback').text("Very Hot");
         } else {
-            return "Not even close"
+            $('#feedback').text("Not even close");
         }
     }
 
     function player() {
-            var guess = $('.text').val();
+            guess = $('.text').val();
             $('ul#guessList').append('<li>' + guess + '</li>');
             return guess;
+
         }
         //Random number generator betweeen 1 and 100
     function randNum() {
-        var randomnumber = Math.floor(Math.random() * 101);
-        //var randomnumber = Math.floor(Math.random()*101);
-        return randomnumber;
-        console.log(randomnumber);
+        randomnumber = Math.floor(Math.random() * 101);
     }
 
     function newGame() {
-    	/*
-        var guess = 0;
-        var hotnum = 0;
-        var randomnumber = 0;
-        */
-        randNum();
+    	randNum();
     }
 
-    function level_four_diagnostic() {
-    	var guess;
-  var hotnum;
-  var randomnumber;
-    	player();
+    function test() {
         console.log("Guess is " + guess);
         console.log("Random is " + randomnumber);
         console.log("Hotnum is " + hotnum);
+        console.log("COunter is " + counter);
     }
